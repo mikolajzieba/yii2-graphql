@@ -27,6 +27,7 @@ trait ShouldValidate
 
             $rules = $this->rules();
             if (sizeof($rules)) {
+                $this->trigger(\yii\base\Model::EVENT_BEFORE_VALIDATE);
                 //索引1的为args参数.
                 $args = ArrayHelper::getValue($arguments, 1, []);
                 $val = DynamicModel::validateData($args, $rules);

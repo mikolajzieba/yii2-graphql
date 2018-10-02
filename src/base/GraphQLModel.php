@@ -16,6 +16,8 @@ use yii\base\Model;
  */
 class GraphQLModel extends Model
 {
+    const EVENT_BEFORE_RESOLVE = 'beforeResolve';
+
     /**
      * All of the attributes set on the container.
      *

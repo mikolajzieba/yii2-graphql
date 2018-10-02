@@ -45,6 +45,7 @@ class GraphQLField extends GraphQLModel
         $resolver = array($this, 'resolve');
         return function () use ($resolver) {
             $args = func_get_args();
+            $this->trigger(GraphQLModel::EVENT_BEFORE_RESOLVE);
             return $resolver(...$args);
         };
     }
